@@ -1,1 +1,17 @@
-log item: Hello World
+log item: Hello World;
+log item: Start Program;
+log item: date request; current date: 2022-02-17;
+log item: Start Program;
+log item: date request; current date: 2022-02-17;
+log item: Start Program;
+log item: date request; current date: 2022-02-17;
+log item: Start Program;
+log item: date request; current date: 2022-02-17;
+log item: Start Program;
+log item: date request; current date: 2022-02-17;
+log item: wordHistory.csv written with 2022-02-17, Test
+log item: Start Program;
+log item: date request; current date: 2022-02-17;
+log item: wordHistory.csv written with: 2022-02-17,Test
+log item: date request; current date: 2022-02-17;
+log item: userHistory.csv written with: 2022-02-17,Test,5,trash,pylon,weird,laugh,caulk,-,
