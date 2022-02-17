@@ -2,6 +2,7 @@
 # Date: 2/16/22
 # Last Modified: 2/17/22
 
+# imports
 from datetime import date
 
 def openFile(fileName="fileReadingWriting_Base_Default.txt"):
