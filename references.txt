@@ -1,0 +1,2 @@
+file handling: https://www.w3schools.com/python/python_file_handling.asp
+date and time: https://www.programiz.com/python-programming/datetime/current-datetime
