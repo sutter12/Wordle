@@ -9,7 +9,7 @@ def openLogFile(fileName="fileReadingWriting_Base_Default.txt"):
     print("error opening file")
 
 def writeLog(logItem):
-  logFile = openLogFile("fileReadingWriting_Base_Default.txt")
+  logFile = openLogFile("Wordle_Log.txt")
   logFile.write(logItem + "\n")
   logFile.close()
 
