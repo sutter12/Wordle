@@ -70,6 +70,7 @@ def main():
                 words = gray(letter, words)
             elif color == "all":
                 incorrect = False
+                print("Word is: " + userGuess)
                 break
         
         print("\n\n\n<----------Possible Words are ----------->" + str(len(words)))
