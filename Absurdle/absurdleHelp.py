@@ -50,12 +50,17 @@ def gray(letter, words):
     print(letter, len(removedWords), removedWords, len(words), "\n\n", words)
     return words
 
-def main():
-    file = open("words.txt", "r")
+def getWordsList(filename):
+    file = open(filename, "r")
     
     words = []
     for line in file:
         words.append(str(line))
+    
+    return words
+
+def main():
+    words = getWordsList("words.txt")
     
     print(words)
     
