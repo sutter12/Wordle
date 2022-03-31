@@ -3,59 +3,42 @@
 #Last Revision: 3/7/2022
 
 def green(letter, i, words):
-    removedWords = []
+    goodWords = []
     
-    newremovedWords = ["",""]
-    while(len(newremovedWords) != 0):
-        newremovedWords = []
-        for word in words:
-            if word[i] != letter:
-                removedWords.append(word[:-1])
-                newremovedWords.append(word[:-1])
-                words.remove(word)
-    print(letter, i, removedWords, words)
-    return words
+    for word in words:
+        if word[i] == letter:
+            goodWords.append(word)
+    print(letter, i, len(goodWords), goodWords)
+    return goodWords
         
 def yellow(letter, i, words):
-    removedWords = []
+    goodWords = []
     
-    newremovedWords = ["",""]
-    while(len(newremovedWords) != 0):
-        newremovedWords = []
-        for word in words:
-            if word[i] == letter:
-                removedWords.append(word[:-1])
-                newremovedWords.append(word[:-1])
-                words.remove(word)
-            if letter not in word:
-                removedWords.append(word[:-1])
-                newremovedWords.append(word[:-1])
-                words.remove(word)
-    print(letter, i, removedWords, words)
-    return words
+    for word in words:
+        if letter in word and word[i] != letter:
+            goodWords.append(word)
+    print(letter, i, len(goodWords), goodWords)
+    return goodWords
 
 def gray(letter, words):
-    removedWords = []
+    goodWords = []
     
-    newremovedWords = ["",""]
-    while(len(newremovedWords) != 0):
-        newremovedWords = []
-        for word in words:
-            if letter in word:
-                print(letter, word)
-                removedWords.append(word[:-1])
-                newremovedWords.append(word[:-1])
-                words.remove(word)
-        print(letter, len(newremovedWords), newremovedWords, len(words), "\n\n", words)
-    print(letter, len(removedWords), removedWords, len(words), "\n\n", words)
-    return words
+    for word in words:
+        if letter not in word:
+            print(letter, word)
+            goodWords.append(word)
+    print(letter, len(goodWords), goodWords, "\n\n")
+    return goodWords
 
 def getWordsList(filename):
     file = open(filename, "r")
     
     words = []
     for line in file:
-        words.append(str(line))
+        word = str(line)
+        if word[5:] ==  '\n':
+            word = word[:-1]    
+        words.append(word)
     
     return words
 
@@ -68,7 +51,6 @@ def main():
     word = ["", "", "", "", ""]
     
     incorrect = True
-    
     while(incorrect):
         userGuess = ""
         while(len(userGuess) != 5):
