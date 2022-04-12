@@ -8,7 +8,7 @@ def green(letter, i, words):
     for word in words:
         if word[i] == letter:
             goodWords.append(word)
-    print(letter, i, len(goodWords), goodWords)
+    # print(letter, i, len(goodWords), goodWords)
     return goodWords
         
 def yellow(letter, i, words):
@@ -17,7 +17,7 @@ def yellow(letter, i, words):
     for word in words:
         if letter in word and word[i] != letter:
             goodWords.append(word)
-    print(letter, i, len(goodWords), goodWords)
+    # print(letter, i, len(goodWords), goodWords)
     return goodWords
 
 def gray(letter, words):
@@ -25,9 +25,9 @@ def gray(letter, words):
     
     for word in words:
         if letter not in word:
-            print(letter, word)
+            # print(letter, word)
             goodWords.append(word)
-    print(letter, len(goodWords), goodWords, "\n\n")
+    # print(letter, len(goodWords), goodWords, "\n\n")
     return goodWords
 
 def getWordsList(filename):
@@ -52,29 +52,38 @@ def main():
     
     incorrect = True
     while(incorrect):
+        # get users guess and check it 
         userGuess = ""
         while(len(userGuess) != 5):
             userGuess = input("What was your guess: ")
         
-        for i in range(5):
-            letter = userGuess[i]
-            color = input("What was " + letter + "'s color: ")
-
-            if color == "ge":
-                word[i] = letter
-                words = green(letter, i, words)
-            elif color == "y":
-                words = yellow(letter, i, words)
-            elif color == "ga":
-                badLetters += letter
-                words = gray(letter, words)
-            elif color == "all":
+        # get colors of users guess and check it
+        colors = ""
+        while(len(colors) != 5):
+            colors = input("What are the colors (g->green, y->yellow, b->black/gray): \n" + userGuess + "\n")
+            if colors == 'all':
                 incorrect = False
                 print("Word is: " + userGuess)
                 break
         
-        print("\n\n\n<----------Possible Words are ----------->" + str(len(words)))
-        print(words)
-        print(word)
+        # narrow down remaining possible words
+        if incorrect: # code not run if user guessed word   
+            for i in range(5):
+                letter = userGuess[i]
+                color = colors[i]
+
+                if color == "g":
+                    word[i] = letter
+                    words = green(letter, i, words)
+                elif color == "y":
+                    words = yellow(letter, i, words)
+                elif color == "b":
+                    badLetters += letter
+                    words = gray(letter, words)
+            
+            print("\n\n\n<----------Possible Words are -----------> ")
+            print("["+str(len(words))+"] = ", end='')
+            print(words)
+            print(word)
 
 main()
