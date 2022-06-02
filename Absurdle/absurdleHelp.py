@@ -36,8 +36,9 @@ def getWordsList(filename):
     words = []
     for line in file:
         word = str(line)
-        if word[5:] ==  '\n':
-            word = word[:-1]    
+        # if word[5:] ==  '\n':
+        #     word = word[:-1] 
+        word = word[0:5]   
         words.append(word)
     
     return words
@@ -66,6 +67,8 @@ def main():
                 print("Word is: " + userGuess)
                 break
         
+        # color = correctColor() #fixes issue with having multiple of the same letter in a guess
+
         # narrow down remaining possible words
         if incorrect: # code not run if user guessed word   
             for i in range(5):
