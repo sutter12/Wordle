@@ -30,6 +30,19 @@ def gray(letter, words):
     # print(letter, len(goodWords), goodWords, "\n\n")
     return goodWords
 
+# def correctColor(guess, colors):
+#     repeatLetters = []
+#     repeatLetter = ''
+#     for letter in guess:
+#         if letter not in repeatLetters:
+#             repeatLetters.append(letter)
+#         else:
+#             repeatLetter = letter
+#     return colors
+
+def repeatLetter(guess, colors):
+    return colors
+
 def getWordsList(filename):
     file = open(filename, "r")
     
@@ -67,12 +80,19 @@ def main():
                 print("Word is: " + userGuess)
                 break
         
-        # color = correctColor() #fixes issue with having multiple of the same letter in a guess
+        # color = correctColor(userGuess, colors) #fixes issue with having multiple of the same letter in a guess #bobbby
 
         # narrow down remaining possible words
         if incorrect: # code not run if user guessed word   
             for i in range(5):
                 letter = userGuess[i]
+
+                if i<4:
+                    restOfWord = userGuess[(i+1):]
+                    print(restOfWord)
+                    if letter in restOfWord:
+                        colors = repeatLetter(letter, userGuess, colors)
+
                 color = colors[i]
 
                 if color == "g":
