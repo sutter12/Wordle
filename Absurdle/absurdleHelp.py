@@ -91,7 +91,7 @@ def main():
                     restOfWord = userGuess[(i+1):]
                     print(restOfWord)
                     if letter in restOfWord:
-                        colors = repeatLetter(letter, userGuess, colors)
+                        colors = repeatLetter(userGuess, colors)
 
                 color = colors[i]
 
